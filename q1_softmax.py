@@ -20,10 +20,12 @@ def softmax(x):
     written assignment!
     """
 
-    ### YOUR CODE HERE
-    raise NotImplementedError
-    ### END YOUR CODE
-    
+    x = np.matrix(x)
+    x = x - np.max(x, axis=1)
+    np_x_exp = np.exp(x)
+    S = np.sum(np_x_exp, axis=1)
+    x = np_x_exp / S
+
     return x
 
 def test_softmax_basic():
@@ -58,7 +60,6 @@ def test_softmax():
     """
     print "Running your tests..."
     ### YOUR CODE HERE
-    raise NotImplementedError
     ### END YOUR CODE  
 
 if __name__ == "__main__":
